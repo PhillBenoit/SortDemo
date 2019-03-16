@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class SelectionSort extends SortModule {
 
@@ -7,7 +7,7 @@ public class SelectionSort extends SortModule {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("This is a verbose example of insertion sort.");
+		System.out.println("This is a verbose example of selection sort.");
 		SelectionSort test = new SelectionSort(0);
 		test.populateA();
 		test.verboseSort();
@@ -28,7 +28,7 @@ public class SelectionSort extends SortModule {
 
 	@Override
 	protected void verboseSort() {
-		ArrayList<Integer> least_list = new ArrayList<Integer>();
+		LinkedList<Integer> least_list = new LinkedList<Integer>();
 		int least = Integer.MAX_VALUE;
 		int start_index = 0;
 		while (start_index < a.length) {
@@ -57,8 +57,24 @@ public class SelectionSort extends SortModule {
 
 	@Override
 	protected void runSort() {
-		// TODO Auto-generated method stub
-
+		LinkedList<Integer> least_list = new LinkedList<Integer>();
+		int least = Integer.MAX_VALUE;
+		int start_index = 0;
+		while (start_index < a.length) {
+			for (int cursor = start_index; cursor < a.length; cursor++) {
+				int value = a[cursor];
+				if ( value < least) {
+					least_list.clear();
+					least_list.add(cursor);
+					least = value;
+				}
+				else if (value == least) least_list.add(cursor);
+			}
+			for (Integer number:least_list)
+				swap(number, start_index++, least);
+			least = Integer.MAX_VALUE;
+			least_list.clear();
+		}
 	}
 
 }
