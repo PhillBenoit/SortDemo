@@ -39,7 +39,7 @@ public class InsertionSort extends SortModule {
 
 	@Override
 	protected void runSort() {
-		for (int step = 0; step < a.length; step++) {
+		for (int step = 1; step < a.length; step++) {
 			int bubble_value = a[step];
 			int bubble_cursor = step;
 			while (bubble_cursor > 0 && a[bubble_cursor-1] > bubble_value)

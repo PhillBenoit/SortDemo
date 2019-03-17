@@ -2,9 +2,10 @@ import java.util.Random;
 
 public abstract class SortModule {
 
-	protected long elapsed_time;
-	protected double elapsed_seconds;
+	private long elapsed_time;
+	private double elapsed_seconds;
 	public static final double BILLION = 1000000000.0;
+	private Boolean isCorrect;
 	
 	protected int[] a;
 	
@@ -35,14 +36,29 @@ public abstract class SortModule {
 		runSort();
 		elapsed_time = System.nanoTime() - elapsed_time;
 		elapsed_seconds = elapsed_time / BILLION;
+		isCorrect = correctTest();
 		a = null;
 		System.gc();
 	}
 	
+	private boolean correctTest() {
+	    for (int step = 1; step < a.length; step++)
+	        if (a[step] < a[step-1]) return false;
+	    return true;
+	}
+	
+    protected void swap(int source, int destination, int source_value) {
+        int temp = a[destination];
+        a[destination] = source_value;
+        a[source] = temp;
+    }
+
 	protected abstract void runSort();
 
 	public long getElapsedTime() {return elapsed_time;}
 
 	public double getElapsedSeconds() {return elapsed_seconds;}
+	
+	public boolean isCorrect() {return isCorrect;}
 
 }
