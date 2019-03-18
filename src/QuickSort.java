@@ -56,33 +56,6 @@ public class QuickSort extends SortModule {
     private int findMiddle(int start, int end) {return (start + end) / 2;}
 
     /**
-     * Constructor
-     * @param size size of the array to sort
-     */
-    public QuickSort(int size) {
-        super(size);
-        name = "Quick";
-    }
-
-    @Override
-    /**
-     * Populates the array with the example from the book
-     */
-    protected void populateA() {
-        a = new int[10];
-        a[0]=72; 
-        a[1]=6;
-        a[2]=57;
-        a[3]=88;
-        a[4]=85;
-        a[5]=42;
-        a[6]=83;
-        a[7]=73;
-        a[8]=48;
-        a[9]=60;
-    }
-
-    /**
      * Shuffles elements so that 
      * 
      * @param start first index
@@ -113,6 +86,33 @@ public class QuickSort extends SortModule {
         return start;
     }
     
+    /**
+     * Constructor
+     * @param size size of the array to sort
+     */
+    public QuickSort(int size) {
+        super(size);
+        name = "Quick";
+    }
+
+    @Override
+    /**
+     * Populates the array with the example from the book
+     */
+    protected void populateA() {
+        a = new int[10];
+        a[0]=72; 
+        a[1]=6;
+        a[2]=57;
+        a[3]=88;
+        a[4]=85;
+        a[5]=42;
+        a[6]=83;
+        a[7]=73;
+        a[8]=48;
+        a[9]=60;
+    }
+
     /**
      * counter for verbose option steps
      */
