@@ -143,9 +143,8 @@ public abstract class SortModule {
 	 * @param source_value value at source index
 	 */
     protected void swap(int source, int destination, int source_value) {
-        int temp = a[destination];
+        a[source] = a[destination];
         a[destination] = source_value;
-        a[source] = temp;
     }
 
     /**
